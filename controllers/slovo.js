@@ -22,7 +22,8 @@ import Slovo from "../models/Slovo.js"
     export const getSlovos = async (req,res)=>{
     try {
       const slovos = await Slovo.find();
-      res.status(200).json(slovos);
+    //  res.status(200).json(slovos); 
+      res.send(slovos)
     } catch (err) {
       next(err);
     }
