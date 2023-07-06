@@ -1,12 +1,13 @@
-[
+
+  [
     
     {
         "id":1,
         "word": "верблюд",
         "level": 2,
         "image":"https://photoshop-kopona.com/uploads/posts/2018-09/1537459964_0-11.jpg",
-        "width": 571,
-        "heaight": 800,
+        "width": 471,
+        "heaight": 471,
         "read": false
     },
     {
@@ -43,6 +44,8 @@
     }
 
 ]
+ 
 
+ 
 
 

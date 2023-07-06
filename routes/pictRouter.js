@@ -1,11 +1,14 @@
-const express = require('express')
-const { getAllData } = require('../repozitory')
-const router = express.Router()
+import express from "express"
+import   getAllData   from '../repozitory.js'
+ //const { getAllData } = require('../repozitory')
 
+
+const router = express.Router()
  
 // define the home page route
 router.get('/', async function(req, res)  {
  try{
+    
   const data = await getAllData()
   res.send(data)
  } catch(e) {   console.log(e)   }
@@ -13,4 +16,5 @@ router.get('/', async function(req, res)  {
 
 })
  
-module.exports = router
+//module.exports = router
+export default router
