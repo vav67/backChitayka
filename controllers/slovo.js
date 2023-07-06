@@ -23,8 +23,25 @@ import Slovo from "../models/Slovo.js"
     try {
       const slovos = await Slovo.find();
     //  res.status(200).json(slovos); 
-      res.send(slovos)
+    res.status(200).send(slovos)
+    //  res.send(slovos)
     } catch (err) {
-      next(err);
+      res.status(500).send( 'ошибка')
     }
   }
+
+   
+
+  export const getSlovostt =  (req,res)=>{
+    try {
+   //   const slovos = await Slovo.find();
+    //  res.status(200).json(slovos); 
+    //res.status(200).send(slovos)
+      res.send( 'пробный')
+    } catch (err) {
+      //next(err);
+      res.status(500).send( 'ошибка пробный')
+    }
+  }
+
+   

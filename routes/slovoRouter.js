@@ -3,7 +3,7 @@ import express from "express"
  // import { createSlovo, getSlovos } from "../controllers/slovo"
 // import Slovo from "../models/Slovo"
 /////import Slovo from "../models/Slovo.js"
-import { createSlovo, getSlovos } from "../controllers/slovo.js"
+import { createSlovo, getSlovos, getSlovostt } from "../controllers/slovo.js"
  
 const router = express.Router()
 
@@ -32,7 +32,7 @@ router.get("/", getSlovos )
   //     next(err);
   //   }
   // } )
-
+  router.get("/tt", getSlovostt )
 
 export default router
 
