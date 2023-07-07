@@ -35,5 +35,3 @@ router.get("/", getSlovos )
   router.get("/tt", getSlovostt )
 
 export default router
-
- 

@@ -30,15 +30,19 @@ import Slovo from "../models/Slovo.js"
     }
   }
 
-   
+ 
 
   export const getSlovostt = async (req,res)=>{
     try {
         
     const slovos = await Slovo.find();
+    
+    
     //  res.status(200).json(slovos); 
-    res.status(200).send(slovos)
-     // res.send( 'пробный=', slovos)
+
+   ////// res.status(200).send(slovos)
+      res.send( 'Запущен tt')
+   
     } catch (err) {
       //next(err);
       res.status(500).send( 'tt ошибка пробный')
