@@ -21,6 +21,8 @@ import dotenv from "dotenv"// для каталога .env
 //const slovoRouter= require('./routes/slovoRouter')
  import slovoRouter  from  './routes/slovoRouter.js'   
 
+ import cors from "cors" // вместо прокси в package.json
+
 
 //--------соединение с бд -------------------
 const connect = async () =>{
@@ -46,6 +48,7 @@ const connect = async () =>{
 
 //---------------------------------
 
+app.use(cors())
 
 
 app.use(express.json()) //можем передать любой файл json
@@ -55,6 +58,22 @@ app.use(express.json()) //можем передать любой файл json
   app.use('/pict', pictRouter)
  app.use('/test', testRouter)
  app.use( '/slovo', slovoRouter)
+
+
+//middlewares по ошибке
+app.use((err,req,res,next)=>{ 
+  const errorStatus = err.status || 500;
+  const errorMessage = err.message || "Что-то не так Something went wrong!";
+  return res.status(errorStatus).json({
+      success: "сработал middlewares по ошибке "+false,
+      status: errorStatus,
+      message: errorMessage,
+      stack: err.stack,
+    });
+
+})
+
+
 
 app.listen(port, () => {
   connect() // соединение с бд , без  коннекта с бд не смысла дальше

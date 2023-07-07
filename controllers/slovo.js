@@ -1,9 +1,10 @@
 import Slovo from "../models/Slovo.js"
+import { createError } from "../utils/error.js"
 
 
 
 //export const createSlovo = async (req,res,next)=>{
-    export const createSlovo = async (req, res)=>{
+    export const createSlovo = async (req, res,next)=>{
     
     console.log('ii=', req.body)
       const newSlovo = new Slovo(req.body) //новая запись  
@@ -19,20 +20,21 @@ import Slovo from "../models/Slovo.js"
 
 
 //export const getSlovos = async (req,res,next)=>{
-    export const getSlovos = async (req,res)=>{
+    export const getSlovos = async (req,res, next)=>{
     try {
       const slovos = await Slovo.find();
       res.status(200).json(slovos); 
   //  res.status(200).send(slovos)
     //  res.send(slovos)
     } catch (err) {
-      res.status(500).send( 'ошибка')
+     // res.status(500).send( 'ошибка')
+     next(createError(500,"может ошибка"))
     }
   }
 
  
 
-  export const getSlovostt = async (req,res)=>{
+  export const getSlovostt = async (req,res,next)=>{
     try {
         
     const slovos = await Slovo.find();
@@ -40,12 +42,12 @@ import Slovo from "../models/Slovo.js"
     
     //  res.status(200).json(slovos); 
 
-   ////// res.status(200).send(slovos)
-      res.send( 'Запущен tt')
+   res.status(200).send(slovos)
+    //  res.send( 'Запущен tt')
    
     } catch (err) {
-      //next(err);
-      res.status(500).send( 'tt ошибка пробный')
+      next(err);
+     // res.status(500).send( 'tt ошибка пробный')
     }
   }
 

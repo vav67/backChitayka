@@ -4,6 +4,7 @@ import express from "express"
 // import Slovo from "../models/Slovo"
 /////import Slovo from "../models/Slovo.js"
 import { createSlovo, getSlovos, getSlovostt } from "../controllers/slovo.js"
+//import { createError } from "../../utils/error.js";
  
 const router = express.Router()
 
